@@ -14,6 +14,6 @@ variable "associated_vpcs" {
 }
 
 variable "resource_share_accounts" {
-  type = list(string)
+  type    = list(string)
   default = []
 }
