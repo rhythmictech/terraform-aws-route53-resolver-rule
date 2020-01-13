@@ -2,15 +2,16 @@
 
 resource "aws_route53_resolver_rule" "fwd" {
   domain_name          = var.forward_domain
-  rule_type            = "FORWARD"
   resolver_endpoint_id = var.resolver_endpoint
+  rule_type            = "FORWARD"
+  tags                 = var.tags
 
-  target_ip {
-    ip = var.forward_ips[0]
-  }
+  dynamic "target_ip" {
+    for_each = var.forward_ips
 
-  target_ip {
-    ip = var.forward_ips[1]
+    content {
+      ip = target_ip.value
+    }
   }
 
 }
