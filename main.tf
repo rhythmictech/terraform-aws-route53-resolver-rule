@@ -11,7 +11,6 @@ resource "aws_route53_resolver_rule" "fwd" {
       ip = target_ip.value
     }
   }
-
 }
 
 resource "aws_route53_resolver_rule_association" "fwdrule" {
