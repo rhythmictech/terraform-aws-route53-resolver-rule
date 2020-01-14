@@ -7,6 +7,7 @@ variable "forward_domain" {
   description = "Domain name to forward requests for"
   type        = string
 }
+
 variable "forward_ips" {
   description = "List of IPs to forward DNS requests to"
   type        = list(string)
@@ -28,4 +29,3 @@ variable "tags" {
   description = "Map of tags to apply to supported resources"
   type        = map(string)
 }
-
