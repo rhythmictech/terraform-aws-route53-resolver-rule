@@ -6,13 +6,12 @@ Create and manage a [Route 53 Resolver Resolver Rule](https://docs.aws.amazon.co
 ## Usage
 
 ```
-module "route53-rule-internalmoreovercom" {
+module "route53-rule-ad-corp" {
   source            = "git::https://github.com/rhythmictech/terraform-aws-route53-resolver-rule?ref=v0.0.2"
-  associated_vpcs   = [module.vpc.vpc_id]
-  forward_domain    = "internal.moreover.com."
-  forward_ips       = ["10.234.14.5", "10.234.14.6", "10.234.14.8", "10.234.15.4", "10.234.15.5"]
+  associated_vpcs   = ["vpc-1234567"]
+  forward_domain    = "ad.mycompany.com."
+  forward_ips       = ["192.168.100.10", "192.168.100.11"]
   resolver_endpoint = module.route53-outbound.endpoint_id
-  #resource_share_accounts = ["545918078088"]
 }
 ```
 
@@ -28,3 +27,6 @@ module "route53-rule-internalmoreovercom" {
 | resource\_share\_accounts |  | list(string) | `[]` | no |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+## Related Projects
+* [Route 53 Resolver Endpoint module](https://github.com/rhythmictech/terraform-aws-route53-endpoint)
