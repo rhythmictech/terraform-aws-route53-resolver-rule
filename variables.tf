@@ -1,19 +1,31 @@
-variable "forward_domain" {
-  type = string
+variable "associated_vpcs" {
+  description = "List of VPC IDs to associate rule to"
+  type        = list(string)
 }
+
+variable "forward_domain" {
+  description = "Domain name to forward requests for"
+  type        = string
+}
+
 variable "forward_ips" {
-  type = list(string)
+  description = "List of IPs to forward DNS requests to"
+  type        = list(string)
 }
 
 variable "resolver_endpoint" {
-  type = string
-}
-
-variable "associated_vpcs" {
-  type = list(string)
+  description = "Resolver Endpoint ID"
+  type        = string
 }
 
 variable "resource_share_accounts" {
-  type    = list(string)
-  default = []
+  default     = []
+  description = "List of account IDs to share this resolver rule with"
+  type        = list(string)
+}
+
+variable "tags" {
+  default     = {}
+  description = "Map of tags to apply to supported resources"
+  type        = map(string)
 }
