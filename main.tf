@@ -1,5 +1,5 @@
 resource "aws_route53_resolver_rule" "fwd" {
-  name                 = var.forward_domain
+  name                 = replace(var.forward_domain, ".", "")
   domain_name          = var.forward_domain
   resolver_endpoint_id = var.resolver_endpoint
   rule_type            = "FORWARD"
