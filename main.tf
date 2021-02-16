@@ -9,7 +9,8 @@ resource "aws_route53_resolver_rule" "fwd" {
     for_each = var.forward_ips
 
     content {
-      ip = target_ip.value
+      ip   = target_ip.value
+      port = var.dns_port
     }
   }
 }

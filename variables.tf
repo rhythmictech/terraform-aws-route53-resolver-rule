@@ -13,6 +13,12 @@ variable "forward_ips" {
   type        = list(string)
 }
 
+variable "dns_port" {
+  type        = number
+  description = "DNS port to forward DNS requests to"
+  default     = 53
+}
+
 variable "resolver_endpoint" {
   description = "Resolver Endpoint ID"
   type        = string
