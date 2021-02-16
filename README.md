@@ -19,13 +19,14 @@ module "route53-rule-ad-corp" {
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| associated\_vpcs | List of VPC IDs to associate rule to | list(string) | n/a | yes |
-| forward\_domain | Domain name to forward requests for | string | n/a | yes |
-| forward\_ips | List of IPs to forward DNS requests to | list(string) | n/a | yes |
-| resolver\_endpoint | Resolver Endpoint ID | string | n/a | yes |
-| resource\_share\_accounts | List of account IDs to share this resolver rule with | list(string) | `[]` | no |
-| tags | Map of tags to apply to supported resources | map(string) | `{}` | no |
+|------|-------------|------|---------|:--------:|
+| associated\_vpcs | List of VPC IDs to associate rule to | `list(string)` | n/a | yes |
+| dns\_port | DNS port to forward DNS requests to | `number` | `53` | no |
+| forward\_domain | Domain name to forward requests for | `string` | n/a | yes |
+| forward\_ips | List of IPs to forward DNS requests to | `list(string)` | n/a | yes |
+| resolver\_endpoint | Resolver Endpoint ID | `string` | n/a | yes |
+| resource\_share\_accounts | List of account IDs to share this resolver rule with | `list(string)` | `[]` | no |
+| tags | Map of tags to apply to supported resources | `map(string)` | `{}` | no |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
