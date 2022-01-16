@@ -30,7 +30,7 @@ module "route53-rule-ad-corp" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| associated\_vpcs | List of VPC IDs to associate rule to | `list(string)` | n/a | yes |
+| associated\_vpcs | List of VPC IDs to associate rule to | `list(string)` | null | no |
 | dns\_port | DNS port to forward DNS requests to | `number` | `53` | no |
 | forward\_domain | Domain name to forward requests for | `string` | n/a | yes |
 | forward\_ips | List of IPs to forward DNS requests to | `list(string)` | n/a | yes |
