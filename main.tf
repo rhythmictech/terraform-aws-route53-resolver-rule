@@ -16,7 +16,7 @@ resource "aws_route53_resolver_rule" "fwd" {
 }
 
 resource "aws_route53_resolver_rule_association" "fwdrule" {
-  count            = length(var.associated_vpcs)
+  count            = length(var.associated_vpcs) > 0 ? length(var.associated_vpcs) : 0
   resolver_rule_id = aws_route53_resolver_rule.fwd.id
   vpc_id           = var.associated_vpcs[count.index]
 }
